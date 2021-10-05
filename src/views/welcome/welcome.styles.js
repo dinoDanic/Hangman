@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Wrap = styled.div`
+export const Wrap = styled(motion.div)`
   display: flex;
   height: 100%;
   align-items: center;

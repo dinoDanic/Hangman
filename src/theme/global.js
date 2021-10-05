@@ -12,6 +12,20 @@ const GlobalStyle = createGlobalStyle`
         
         font-size: ${(props) => props.theme.spacing.font.md}
     }
+    ${
+      "" /* .wordWrap {
+        .oneSentance {
+            &:last-child{
+                display: none;
+            }
+            .oneWord {
+                &:first-child {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    } */
+    }
 
 `;
 
