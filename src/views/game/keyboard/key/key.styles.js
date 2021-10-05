@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 const usedPositive = () => `
     color: green !important;
+    opacity: 0.5;
+    transform: scale(0.7);
 `;
 
 const usedFalse = () => `
     color: red !important;
+    opacity: 0.5;
+    transform: scale(0.7);
 `;
 
 const variants = {

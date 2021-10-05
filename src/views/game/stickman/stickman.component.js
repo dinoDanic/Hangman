@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import WeaponImg from "../../../img/weapon.svg";
 import HeadImg from "../../../img/man/head.svg";
 import BodyImg from "../../../img/man/body.svg";
@@ -19,16 +21,17 @@ import {
 } from "./stickman.styles";
 
 const Stickman = () => {
+  const errors = useSelector((state) => state.controls.errors);
   return (
     <Wrap>
       <HoldScene>
         <Weapon src={WeaponImg} />
-        <Head src={HeadImg} />
-        <Body src={BodyImg} />
-        <ArmRight src={ArmRightImg} />
-        <ArmLeft src={ArmLeftImg} />
-        <LegRight src={LegRightImg} />
-        <LegLeft src={LegLeftImg} />
+        {errors > 0 && <Head src={HeadImg} />}
+        {errors > 1 && <Body src={BodyImg} />}
+        {errors > 2 && <ArmRight src={ArmRightImg} />}
+        {errors > 3 && <ArmLeft src={ArmLeftImg} />}
+        {errors > 4 && <LegRight src={LegRightImg} />}
+        {errors > 5 && <LegLeft src={LegLeftImg} />}
       </HoldScene>
     </Wrap>
   );

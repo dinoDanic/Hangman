@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+
 import { setPlay } from "../../redux/controls/controls.actions";
+import { setUser } from "../../redux/user/user.actions";
 
 import { Wrap, Title, Message } from "./welcome.styles";
 
@@ -20,6 +22,7 @@ const Welcome = () => {
   const handlePlay = (e) => {
     if (!playValid) return;
     dispatch(setPlay(true));
+    dispatch(setUser(name));
   };
 
   const handleChange = (e) => {

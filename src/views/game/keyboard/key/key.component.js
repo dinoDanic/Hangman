@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { KeyboardKey, Underline, Wrap } from "./key.styles";
 
 import UnderlineImg from "../../../../img/x.svg";
 
-const Key = ({ keyCode, handleKey, trueLetters, falseLetters }) => {
+const Key = ({ keyCode, handleKey }) => {
+  // const trueLetters = useSelector((state) => state.controls.trueLetters);
+  // const falseLetters = useSelector((state) => state.controls.falseLetters);
+  const controls = useSelector((state) => state.controls);
   const [state, setState] = useState("");
-  const [lineColor, setLineColor] = useState("");
+
   useEffect(() => {
-    if (trueLetters.includes(keyCode)) {
+    if (controls.trueLetters.includes(keyCode)) {
       setState("usedPositive");
-      setLineColor("red");
     }
-    if (falseLetters.includes(keyCode)) setState("usedFalse");
-  }, [falseLetters, keyCode, trueLetters]);
+    if (controls.falseLetters.includes(keyCode)) setState("usedFalse");
+  }, [controls, keyCode]);
   return (
     <Wrap>
       <KeyboardKey variant={state} onClick={() => handleKey(null, keyCode)}>

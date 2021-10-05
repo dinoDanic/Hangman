@@ -4,18 +4,11 @@ import Key from "./key/key.component";
 
 import { Wrap } from "./keyboard.styles";
 
-const Keyboard = ({ handleKey, trueLetters, falseLetters }) => {
+const Keyboard = ({ handleKey }) => {
   return (
     <Wrap>
       {KEYS.map((key) => {
-        return (
-          <Key
-            handleKey={handleKey}
-            keyCode={key}
-            trueLetters={trueLetters}
-            falseLetters={falseLetters}
-          />
-        );
+        return <Key handleKey={handleKey} keyCode={key} />;
       })}
     </Wrap>
   );

@@ -1,7 +1,11 @@
 import controlsActionType from "./controls.actionTypes";
 
 const INITIAL_STATE = {
-  play: true,
+  play: false,
+  loading: false,
+  errors: 0,
+  trueLetters: [],
+  falseLetters: [],
 };
 
 const controlsReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +14,42 @@ const controlsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         play: action.payload,
+      };
+    case controlsActionType.ADD_ERROR:
+      return {
+        ...state,
+        errors: state.errors + action.payload,
+      };
+    case controlsActionType.SET_ERROR:
+      return {
+        ...state,
+        errors: action.payload,
+      };
+    case controlsActionType.ADD_TRUE_LETTER:
+      const newTrue = state.trueLetters;
+      newTrue.push(action.payload);
+      return {
+        ...state,
+        trueLetters: newTrue,
+      };
+    case controlsActionType.ADD_FALSE_LETTER:
+      const newFalse = state.falseLetters;
+      newFalse.push(action.payload);
+      return {
+        ...state,
+        falseLetters: newFalse,
+      };
+    case controlsActionType.SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload,
+      };
+    case controlsActionType.RESTART_CONTROLS:
+      return {
+        ...state,
+        trueLetters: [],
+        falseLetters: [],
+        errors: 0,
       };
     default:
       return state;
