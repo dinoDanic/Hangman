@@ -30,7 +30,7 @@ const Welcome = () => {
   };
 
   const handleBoard = () => {
-    dispatch(setScoreBoard(true));
+    dispatch(setScoreBoard());
   };
 
   return (

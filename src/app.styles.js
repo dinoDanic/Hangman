@@ -7,4 +7,6 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: center;
   background-image: url(${bg1Img});
+  position: relative;
+  overflow: hidden;
 `;

@@ -53,10 +53,19 @@ const controlsReducer = (state = INITIAL_STATE, action) => {
         errors: 0,
       };
     case controlsActionType.SET_BOARD:
-      return {
-        ...state,
-        scoreBoard: !state.scoreBoard,
-      };
+      console.log(action.payload);
+      if (action.payload === undefined) {
+        return {
+          ...state,
+          scoreBoard: !state.scoreBoard,
+        };
+      }
+      if (action.payload === false) {
+        return {
+          ...state,
+          scoreBoard: action.payload,
+        };
+      }
     default:
       return state;
   }

@@ -17,6 +17,6 @@ export const errorAnimation = {
 
 export const scoreBoardAnimation = {
   initial: { x: "-120%", rotate: -20 },
-  // animate: { x: 0, rotate: -3, transition: { duration: 0.5, type: "spring" } },
+  animate: { x: 0, rotate: -3, transition: { duration: 0.5, type: "spring" } },
   exit: { opacity: 0 },
 };

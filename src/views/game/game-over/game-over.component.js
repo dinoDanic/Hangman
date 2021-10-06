@@ -7,14 +7,12 @@ import { getRendomQuote, restartGame } from "../../../redux/data/data.actions";
 import {
   restartControls,
   setError,
-  setLoading,
   setPlay,
 } from "../../../redux/controls/controls.actions";
 
 const GameOver = ({ setIsGameOver }) => {
   const dispatch = useDispatch();
   const handleRestart = () => {
-    // dispatch(getRendomQuote());
     dispatch(restartControls());
     dispatch(getRendomQuote());
     setIsGameOver(false);
