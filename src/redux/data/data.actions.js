@@ -30,3 +30,21 @@ export const restartGame = () => async (dispatch) => {
     type: dataActionsTypes.RESET_DATA,
   });
 };
+
+export const sendScoreData = (scoreData) => async (dispatch) => {
+  console.log(scoreData);
+  try {
+    const respond = await api.sendScoreData(scoreData);
+    console.log(respond);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getScores = () => async (dispatch) => {
+  try {
+    const respond = await api.getScores();
+  } catch (error) {
+    console.log(error.message);
+  }
+};

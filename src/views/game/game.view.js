@@ -1,3 +1,4 @@
+/* eslint-disable no-sparse-arrays */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
@@ -9,7 +10,7 @@ import {
   addTrueLetter,
   addFalseLetter,
 } from "../../redux/controls/controls.actions";
-import { getRendomQuote } from "../../redux/data/data.actions";
+import { getRendomQuote, sendScoreData } from "../../redux/data/data.actions";
 
 import Keyboard from "./keyboard/keyboard.component";
 import Stickman from "./stickman/stickman.component";
@@ -27,16 +28,9 @@ const Game = () => {
   const controls = useSelector((state) => state.controls);
   const user = useSelector((state) => state.user);
   const [time, setTime] = useState(0);
-  const [isGameWin, setIsGameWin] = useState(false);
+  const [isGameWin, setIsGameWin] = useState(true);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [winnerData, setWinnerData] = useState({
-    quoteId: data._id,
-    length: data.length,
-    uniqueCharacters: getUniqueChars(content),
-    userName: user.userName,
-    errors: controls.errors,
-    duration: time,
-  });
+  const [winnerData, setWinnerData] = useState({});
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -81,10 +75,20 @@ const Game = () => {
 
   useEffect(() => {
     setIsGameOver(controls.errors > 5);
+    setWinnerData({
+      quoteId: data._id,
+      length: data.length,
+      uniqueCharacters: getUniqueChars(content),
+      userName: user.userName,
+      errors: controls.errors,
+      duration: time * 1000,
+    });
     if (checkWin(content, controls.trueLetters) === "win") {
       setIsGameWin(true);
+      dispatch(sendScoreData(winnerData));
     }
-  }, [controls, content]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controls, content, data, , user, time, dispatch]);
 
   return (
     <Wrap>

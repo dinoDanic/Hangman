@@ -3,6 +3,7 @@ import controlsActionType from "./controls.actionTypes";
 const INITIAL_STATE = {
   play: false,
   loading: false,
+  scoreBoard: false,
   errors: 0,
   trueLetters: [],
   falseLetters: [],
@@ -50,6 +51,11 @@ const controlsReducer = (state = INITIAL_STATE, action) => {
         trueLetters: [],
         falseLetters: [],
         errors: 0,
+      };
+    case controlsActionType.SET_BOARD:
+      return {
+        ...state,
+        scoreBoard: !state.scoreBoard,
       };
     default:
       return state;

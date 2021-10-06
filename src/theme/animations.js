@@ -14,3 +14,9 @@ export const errorAnimation = {
   animate: { opacity: 1, scale: 1 },
   exit: { opacity: 0 },
 };
+
+export const scoreBoardAnimation = {
+  initial: { x: "-120%", rotate: -20 },
+  // animate: { x: 0, rotate: -3, transition: { duration: 0.5, type: "spring" } },
+  exit: { opacity: 0 },
+};

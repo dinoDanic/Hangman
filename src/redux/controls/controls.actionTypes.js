@@ -8,6 +8,7 @@ const controlsActionType = {
   ADD_FALSE_LETTER: "ADD_FALSE_LETTER",
   SET_LOADING: "SET_LOADIGN",
   RESTART_CONTROLS: "RESTART_CONTROLS",
+  SET_BOARD: "SET_BOARD",
 };
 
 export default controlsActionType;

@@ -8,7 +8,7 @@ const notValid = (theme) => `
 const isValid = (theme) => `
 &:hover {
     color: ${theme.colors.ui.primary};
-    transform: scale(1.1) rotate(-10deg);
+    transform: scale(1.1) rotate(-5deg);
   }
   &:active {
       color: ${theme.colors.ui.primary};

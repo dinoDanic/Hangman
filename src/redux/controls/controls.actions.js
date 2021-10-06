@@ -46,3 +46,8 @@ export const setLoading = (state) => ({
 export const restartControls = () => ({
   type: controlsActionType.RESTART_CONTROLS,
 });
+
+export const setScoreBoard = (state) => ({
+  type: controlsActionType.SET_BOARD,
+  payload: state,
+});

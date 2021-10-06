@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { setPlay } from "../../redux/controls/controls.actions";
+import { setPlay, setScoreBoard } from "../../redux/controls/controls.actions";
 import { setUser } from "../../redux/user/user.actions";
 
 import { Wrap, Title, Message } from "./welcome.styles";
@@ -29,6 +29,10 @@ const Welcome = () => {
     setName(e.target.value);
   };
 
+  const handleBoard = () => {
+    dispatch(setScoreBoard(true));
+  };
+
   return (
     <Wrap variants={welcomeAni} animate="animate" initial="initial" exit="exit">
       <Title>Hang Man</Title>
@@ -37,6 +41,7 @@ const Welcome = () => {
       <Button valid={playValid} onClick={handlePlay}>
         Play
       </Button>
+      <Button onClick={handleBoard}>Score Board</Button>
     </Wrap>
   );
 };
