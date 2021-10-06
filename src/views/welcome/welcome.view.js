@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { setPlay, setScoreBoard } from "../../redux/controls/controls.actions";
 import { setUser } from "../../redux/user/user.actions";
 
-import { Wrap, Title, Message } from "./welcome.styles";
+import { Wrap, Title, Message, Img, Form, EnterName } from "./welcome.styles";
+import noteImg from "../../img/note2.svg";
 
 import Input from "../../theme/ui-components/input/input.component";
 import Button from "../../theme/ui-components/button/button.component";
@@ -20,6 +21,7 @@ const Welcome = () => {
   }, [name]);
 
   const handlePlay = (e) => {
+    e.preventDefault();
     if (!playValid) return;
     dispatch(setPlay(true));
     dispatch(setUser(name));
@@ -37,9 +39,14 @@ const Welcome = () => {
   return (
     <Wrap variants={welcomeAni} animate="animate" initial="initial" exit="exit">
       <Title>Hang Man</Title>
-      <Message>Got name?</Message>
-      <Input placeholder="enter name" onChange={handleChange} />
-      <Button valid={playValid} onClick={handlePlay}>
+      <Form onSubmit={handlePlay}>
+        <Img src={noteImg} />
+        <Message>Name</Message>
+        <EnterName>
+          <Input placeholder="enter name" onChange={handleChange} />
+        </EnterName>
+      </Form>
+      <Button valid={playValid} type="submit">
         Play
       </Button>
       <Button onClick={handleBoard}>Score Board</Button>

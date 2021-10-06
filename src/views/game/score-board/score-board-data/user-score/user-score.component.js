@@ -10,7 +10,6 @@ import {
 
 const UserScore = ({ score, i }) => {
   const { userName, errors, length, uniqueCharacters, duration } = score;
-  console.log(score);
   return (
     <Wrap>
       <UserName>

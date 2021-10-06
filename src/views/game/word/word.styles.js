@@ -10,15 +10,20 @@ export const Words = styled.div`
   flex-wrap: wrap;
 `;
 
-export const OneSentance = styled.div`
+export const Sentance = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justifycontent: "center";
   &:after {
     display: flex;
     content: ".";
     justify-content: flex-end;
     align-items: flex-end;
+    font-size: ${(props) => props.theme.spacing.font.lg};
     margin-bottom: 16px;
+  }
+  &:last-child {
+    display: none !important;
   }
 `;
 
@@ -29,12 +34,5 @@ export const OneWord = styled.div`
   margin-bottom: 10px;
   &:last-child {
     margin-right: 0;
-  }
-  &:first-child {
-    div {
-      &:first-child {
-        /*  text-transform: uppercase; */
-      }
-    }
   }
 `;

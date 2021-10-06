@@ -34,7 +34,6 @@ const ScoreBoardData = ({ state }) => {
 
     const filterTime = filterLength.sort((a, b) => {
       if (a.length === b.length) {
-        console.log("THE SAME", a.length, b.tength);
         return parseFloat(a.duration) - parseFloat(b.duration);
       }
       return false;

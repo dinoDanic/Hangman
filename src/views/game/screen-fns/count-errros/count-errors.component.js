@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import NoteImg from "../../../img/note.png";
+import NoteImg from "../../../../img/note4.svg";
 
 import { Wrap, Img, Title, ErrorsLeft, HoldInfo } from "./count-errors.styles";
 

@@ -15,12 +15,13 @@ import { setWin, setLose } from "../../redux/user/user.actions";
 
 import Keyboard from "./keyboard/keyboard.component";
 import Stickman from "./stickman/stickman.component";
-import CountErrors from "./count-errros/count-errors.component";
+import CountErrors from "./screen-fns/count-errros/count-errors.component";
 import Word from "./word/word.component";
 import PopUp from "../../theme/ui-components/popup/popup.component";
 import Loading from "../../theme/ui-components/loading/loading.component";
-import Clock from "./clock/clock.component";
+import Clock from "./screen-fns/clock/clock.component";
 import Winner from "./winner/winner.component";
+import ScreenFns from "./screen-fns/screen-fns.component";
 
 const Game = () => {
   const content = useSelector((state) => state.data.content);
@@ -105,10 +106,9 @@ const Game = () => {
       {content && !controls.loading && (
         <>
           <Stickman />
+          <ScreenFns time={time} setTime={setTime} />
           <Word word={content.toLowerCase()} />
           <Keyboard handleKey={keyDown} />
-          <CountErrors />
-          <Clock time={time} />
           {user.lose && (
             <PopUp
               setTime={setTime}

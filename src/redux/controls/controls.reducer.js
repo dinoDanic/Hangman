@@ -55,7 +55,6 @@ const controlsReducer = (state = INITIAL_STATE, action) => {
         errors: 0,
       };
     case controlsActionType.SET_BOARD:
-      console.log(action.payload);
       if (action.payload === undefined) {
         return {
           ...state,

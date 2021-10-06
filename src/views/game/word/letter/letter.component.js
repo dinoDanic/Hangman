@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { TheLetter } from "./letter.styles";
 import { checkSpecial } from "./utils";
 
-const Letter = ({ letter }) => {
+const Letter = ({ letter, ...otherProps }) => {
   const controls = useSelector((state) => state.controls);
   const [variant, setVariant] = useState(null);
   useEffect(() => {
@@ -16,7 +16,7 @@ const Letter = ({ letter }) => {
     }
   }, [letter]);
   return (
-    <TheLetter variant={variant}>
+    <TheLetter variant={variant} {...otherProps}>
       {controls.trueLetters.includes(letter) && letter}
       {variant === "special" && letter}
     </TheLetter>

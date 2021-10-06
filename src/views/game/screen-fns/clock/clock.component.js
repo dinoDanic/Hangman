@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Wrap, Img, Time, Text } from "./clock.styles";
 
-import NoteImg from "../../../img/note2.png";
+import NoteImg from "../../../../img/note2.svg";
 
 const Clock = ({ time }) => {
   return (

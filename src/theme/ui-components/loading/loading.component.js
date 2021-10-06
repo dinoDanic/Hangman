@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Wrap } from "./loading.styles";
+import { Wrap, Load } from "./loading.styles";
 
 const Loading = () => {
   return (
@@ -12,7 +12,17 @@ const Loading = () => {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
         >
-          loading
+          <Load
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0.2 }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "reverse",
+            }}
+          >
+            Loading...
+          </Load>
         </Wrap>,
         document.getElementById("loading")
       )}

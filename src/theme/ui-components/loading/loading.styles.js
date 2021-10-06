@@ -13,3 +13,5 @@ export const Wrap = styled(motion.div)`
   z-index: 999;
   background-image: url(${BgImg});
 `;
+
+export const Load = styled(motion.div)``;

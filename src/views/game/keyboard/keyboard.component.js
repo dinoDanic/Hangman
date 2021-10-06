@@ -8,7 +8,7 @@ const Keyboard = ({ handleKey }) => {
   return (
     <Wrap>
       {KEYS.map((key) => {
-        return <Key handleKey={handleKey} keyCode={key} />;
+        return <Key handleKey={handleKey} keyCode={key} key={key} />;
       })}
     </Wrap>
   );

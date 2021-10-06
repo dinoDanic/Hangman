@@ -32,7 +32,6 @@ export const restartGame = () => async (dispatch) => {
 };
 
 export const sendScoreData = (scoreData) => async (dispatch) => {
-  console.log(scoreData);
   try {
     const respond = await api.sendScoreData(scoreData);
     console.log(respond);
