@@ -10,27 +10,10 @@ import {
   setPlay,
 } from "../../../redux/controls/controls.actions";
 
-const GameOver = ({ setIsGameOver }) => {
+const GameOver = ({ setIsGameOver, setTime }) => {
   const dispatch = useDispatch();
-  const handleRestart = () => {
-    dispatch(restartControls());
-    dispatch(getRendomQuote());
-    setIsGameOver(false);
-  };
-  const handleToManu = () => {
-    dispatch(setError(0));
-    dispatch(restartGame());
-    dispatch(restartControls());
-    dispatch(setPlay(false));
-  };
-  return (
-    <Wrap>
-      <Buttons>
-        <Button onClick={handleRestart}>Restart</Button>
-        <Button onClick={handleToManu}>Back to menu</Button>
-      </Buttons>
-    </Wrap>
-  );
+
+  return <Wrap></Wrap>;
 };
 
 export default GameOver;

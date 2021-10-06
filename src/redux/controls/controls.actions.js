@@ -1,5 +1,5 @@
 import controlsActionType from "./controls.actionTypes";
-
+import userActionType from "../user/user.actionType";
 export const setPlay = (state) => ({
   type: controlsActionType.SET_PLAY,
   payload: state,
@@ -37,3 +37,21 @@ export const setScoreBoard = (state) => ({
   type: controlsActionType.SET_BOARD,
   payload: state,
 });
+
+export const newGame = () => async (dispatch) => {
+  dispatch({
+    type: controlsActionType.RESTART_CONTROLS,
+  });
+  dispatch({
+    type: controlsActionType.SET_BOARD,
+    payload: false,
+  });
+  dispatch({
+    type: userActionType.SET_WIN,
+    payload: false,
+  });
+  dispatch({
+    type: userActionType.SET_LOSE,
+    payload: false,
+  });
+};

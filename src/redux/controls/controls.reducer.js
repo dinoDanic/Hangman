@@ -4,7 +4,9 @@ const INITIAL_STATE = {
   play: false,
   loading: false,
   scoreBoard: false,
-  errors: 0,
+  winner: false,
+  loser: false,
+  errors: -25,
   trueLetters: [],
   falseLetters: [],
 };
@@ -66,6 +68,18 @@ const controlsReducer = (state = INITIAL_STATE, action) => {
           scoreBoard: action.payload,
         };
       }
+      return state;
+    case controlsActionType.SET_LOOSER:
+      return {
+        ...state,
+        loser: action.payload,
+      };
+    case controlsActionType.SET_WINNER:
+      return {
+        ...state,
+        winner: action.payload,
+      };
+
     default:
       return state;
   }

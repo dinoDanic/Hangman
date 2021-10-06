@@ -3,12 +3,7 @@ import { Wrap, Img, Time, Text } from "./clock.styles";
 
 import NoteImg from "../../../img/note2.png";
 
-const Clock = ({ setTime, time }) => {
-  useEffect(() => {
-    setTimeout(() => {
-      setTime(time + 1);
-    }, 1000);
-  }, [setTime, time]);
+const Clock = ({ time }) => {
   return (
     <Wrap>
       <Img src={NoteImg} />

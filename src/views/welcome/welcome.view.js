@@ -23,6 +23,7 @@ const Welcome = () => {
     if (!playValid) return;
     dispatch(setPlay(true));
     dispatch(setUser(name));
+    dispatch(setScoreBoard(false));
   };
 
   const handleChange = (e) => {

@@ -10,26 +10,25 @@ import {
   addTrueLetter,
   addFalseLetter,
 } from "../../redux/controls/controls.actions";
-import { getRendomQuote, sendScoreData } from "../../redux/data/data.actions";
+import { getRendomQuote } from "../../redux/data/data.actions";
+import { setWin, setLose } from "../../redux/user/user.actions";
 
 import Keyboard from "./keyboard/keyboard.component";
 import Stickman from "./stickman/stickman.component";
 import CountErrors from "./count-errros/count-errors.component";
 import Word from "./word/word.component";
-import GameOver from "./game-over/game-over.component";
 import PopUp from "../../theme/ui-components/popup/popup.component";
 import Loading from "../../theme/ui-components/loading/loading.component";
-import Winner from "./winner/winner.component";
 import Clock from "./clock/clock.component";
+import Winner from "./winner/winner.component";
 
 const Game = () => {
   const content = useSelector((state) => state.data.content);
   const data = useSelector((state) => state.data);
   const controls = useSelector((state) => state.controls);
+  const errors = useSelector((state) => state.controls.errors);
   const user = useSelector((state) => state.user);
   const [time, setTime] = useState(0);
-  const [isGameWin, setIsGameWin] = useState(true);
-  const [isGameOver, setIsGameOver] = useState(false);
   const [winnerData, setWinnerData] = useState({});
 
   const dispatch = useDispatch();
@@ -74,21 +73,32 @@ const Game = () => {
   }, [content, controls]);
 
   useEffect(() => {
-    setIsGameOver(controls.errors > 5);
     setWinnerData({
       quoteId: data._id,
       length: data.length,
       uniqueCharacters: getUniqueChars(content),
       userName: user.userName,
-      errors: controls.errors,
+      errors: errors,
       duration: time * 1000,
     });
     if (checkWin(content, controls.trueLetters) === "win") {
-      setIsGameWin(true);
-      dispatch(sendScoreData(winnerData));
+      dispatch(setWin(true));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [controls, content, data, , user, time, dispatch]);
+  }, [errors, content, data, controls, time, dispatch]);
+
+  useEffect(() => {
+    if (errors > 5) {
+      dispatch(setLose(true));
+    }
+  }, [dispatch, errors]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (user.lose || user.win) return;
+      setTime(time + 1);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [time, user.lose, user.win]);
 
   return (
     <Wrap>
@@ -98,15 +108,17 @@ const Game = () => {
           <Word word={content.toLowerCase()} />
           <Keyboard handleKey={keyDown} />
           <CountErrors />
-          <Clock setTime={setTime} time={time} />
-          {isGameOver && (
-            <PopUp title="Game Over! ;(" message="Start over?">
-              <GameOver setIsGameOver={setIsGameOver} />
-            </PopUp>
+          <Clock time={time} />
+          {user.lose && (
+            <PopUp
+              setTime={setTime}
+              title="Game Over! ;("
+              message="Start over?"
+            />
           )}
-          {isGameWin && (
-            <PopUp title="You Won! :D">
-              <Winner setIsGameWin={setIsGameWin} />
+          {user.win && (
+            <PopUp title="You Won! :D" setTime={setTime}>
+              <Winner winnerData={winnerData} />
             </PopUp>
           )}
         </>

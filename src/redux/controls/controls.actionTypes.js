@@ -9,6 +9,8 @@ const controlsActionType = {
   SET_LOADING: "SET_LOADIGN",
   RESTART_CONTROLS: "RESTART_CONTROLS",
   SET_BOARD: "SET_BOARD",
+  SET_WINNER: "SET_WINNER",
+  SET_LOOSER: "SET_LOOSER",
 };
 
 export default controlsActionType;

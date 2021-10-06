@@ -36,6 +36,7 @@ export const sendScoreData = (scoreData) => async (dispatch) => {
   try {
     const respond = await api.sendScoreData(scoreData);
     console.log(respond);
+    return respond;
   } catch (error) {
     console.log(error.message);
   }
