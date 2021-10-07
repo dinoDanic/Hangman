@@ -33,6 +33,7 @@ export const Paper = styled.div`
   padding: ${(props) => props.theme.spacing.padding.lg};
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
   @media ${(props) => props.theme.size.screen.sm} {
     width: 80%;
     transform: rotate(3deg);
