@@ -6,6 +6,7 @@ import { Wrap, Title, Table, Rules } from "./score-board-data.styles";
 import {
   Duration,
   Errors,
+  GameScore,
   Length,
   UniqChar,
   UserName,
@@ -49,6 +50,7 @@ const ScoreBoardData = ({ state }) => {
         <UniqChar>Uniq Chars</UniqChar>
         <Length>Length</Length>
         <Duration>Duration</Duration>
+        <GameScore>Score</GameScore>
       </Table>
       {data.map((score, i) => (
         <UserScore score={score} i={i} key={i} />

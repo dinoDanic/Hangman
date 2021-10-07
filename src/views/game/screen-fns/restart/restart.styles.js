@@ -19,6 +19,9 @@ export const Wrap = styled.div`
       opacity: 0;
     }
   }
+  @media ${(props) => props.theme.size.screen.sm} {
+    display: none;
+  }
 `;
 export const Img = styled(motion.img)`
   width: 100%;

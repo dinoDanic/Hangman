@@ -20,3 +20,16 @@ export const scoreBoardAnimation = {
   animate: { x: 0, rotate: -3, transition: { duration: 0.5, type: "spring" } },
   exit: { opacity: 0 },
 };
+
+export const loadAnimation = {
+  animate: {
+    opacity: 1,
+    transition: {
+      repeat: Infinity,
+      ease: "linear",
+      repeatType: "reverse",
+      duration: 0.3,
+    },
+  },
+  initial: { opacity: 0.5 },
+};

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getScores } from "../../../api";
+import { setScoreBoard } from "../../../redux/controls/controls.actions";
 
 import ScoreBoardData from "./score-board-data/score-board-data.component";
 
-import { Wrap, Rules, Paper, Loading } from "./score-board.styles";
+import { Wrap, Rules, Paper, Loading, CloseBoard } from "./score-board.styles";
 
 const ScoreBoard = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState([]);
   const scoreBoard = useSelector((state) => state.controls.scoreBoard);
 
@@ -23,6 +25,10 @@ const ScoreBoard = () => {
     };
     loadScores();
   }, []);
+
+  const handleClose = () => {
+    dispatch(setScoreBoard(false));
+  };
 
   const boardAnimation = {
     initial: { x: "-150%", rotate: -50 },
@@ -45,9 +51,10 @@ const ScoreBoard = () => {
         {state.length > 0 && <ScoreBoardData state={state} />}
         {state.length === 0 && <Loading>Loading</Loading>}
         <Rules>
-          Rules <br />
+          Bonus rules <br />
           Errors > Uniq Chars > Length > Duration
         </Rules>
+        <CloseBoard onClick={handleClose}>X</CloseBoard>
       </Paper>
     </Wrap>
   );

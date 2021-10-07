@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { sendScoreData } from "../../../redux/data/data.actions";
+import { loadAnimation } from "../../../theme/animations";
 import { getUniqueChars } from "../utils";
 
-import { Sending, Wrap } from "./winner.styles";
+import { Sending, Wrap, Load } from "./winner.styles";
 
 const Winner = ({ setIsGameWin, setTime, time }) => {
   const data = useSelector((state) => state.data);
   const user = useSelector((state) => state.user);
+  const [dataSent, setDataSent] = useState(false);
   const controls = useSelector((state) => state.controls);
-  const [isSending, setIsSending] = useState(false);
+  const [isSending, setIsSending] = useState(true);
   const [sendSuccess, setSendSuccess] = useState(false);
   const [winnerData, setWinnerData] = useState({});
   const dispatch = useDispatch();
@@ -21,13 +24,14 @@ const Winner = ({ setIsGameWin, setTime, time }) => {
       uniqueCharacters: getUniqueChars(data.content),
       userName: user.userName,
       errors: controls.errors,
-      duration: time * 1000,
+      duration: data.time,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data, controls, user]);
 
   useEffect(() => {
-    if (!winnerData.userName) return;
+    if (!winnerData.userName || !winnerData.duration) return;
+    if (dataSent) return;
     const sendData = async () => {
       setIsSending(true);
       const respond = await dispatch(sendScoreData(winnerData));
@@ -35,19 +39,24 @@ const Winner = ({ setIsGameWin, setTime, time }) => {
         if (respond.status === 201) {
           setIsSending(false);
           setSendSuccess(true);
+          setDataSent(true);
         } else {
           console.log("error with sending data");
         }
       }, 1000);
     };
     sendData();
-  }, [dispatch, winnerData]);
+  }, [winnerData]);
 
   return (
     <Wrap>
       <Sending>
-        {isSending && <p>Sending Score Data</p>}
-        {sendSuccess && !isSending && <p>Score Data Sent!</p>}
+        {isSending && (
+          <Load variants={loadAnimation} animate="animate" initial="initial">
+            Sending score data
+          </Load>
+        )}
+        {sendSuccess && !isSending && <div>Score Data Sent!</div>}
       </Sending>
     </Wrap>
   );

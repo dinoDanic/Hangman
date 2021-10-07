@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { loadAnimation } from "../../animations";
 
 import { Wrap, Load } from "./loading.styles";
 
@@ -12,15 +13,7 @@ const Loading = () => {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
         >
-          <Load
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0.2 }}
-            transition={{
-              repeat: Infinity,
-              ease: "linear",
-              repeatType: "reverse",
-            }}
-          >
+          <Load variants={loadAnimation} animate="animate" initial="initial">
             Loading...
           </Load>
         </Wrap>,

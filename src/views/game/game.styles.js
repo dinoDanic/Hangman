@@ -8,4 +8,9 @@ export const Wrap = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  @media ${(props) => props.theme.size.screen.sm} {
+    width: 100%;
+    gap: 0;
+    justify-content: flex-start;
+  }
 `;

@@ -13,7 +13,4 @@ export const spacing = {
     xl: "5rem",
     xxl: "7rem",
   },
-  screen: {
-    sm: "(max-width: 700px)",
-  },
 };

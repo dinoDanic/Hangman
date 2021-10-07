@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Wrap = styled.div`
@@ -6,3 +7,5 @@ export const Wrap = styled.div`
 `;
 
 export const Sending = styled.div``;
+
+export const Load = styled(motion.div)``;

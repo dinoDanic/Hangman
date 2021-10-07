@@ -5,7 +5,8 @@ import bgImg from "../../../img/bg2.png";
 export const Wrap = styled(motion.div)`
   position: absolute;
   height: 100vh;
-  width: 600px;
+  min-width: 600px;
+  width: 700px;
   left: 20px;
   display: flex;
   justify-content: center;
@@ -42,4 +43,15 @@ export const Rules = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const CloseBoard = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: ${(props) => props.theme.spacing.font.md};
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.3) rotate(10deg);
+  }
 `;

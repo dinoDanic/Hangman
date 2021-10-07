@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 
@@ -21,14 +21,6 @@ const Game = () => {
   const controls = useSelector((state) => state.controls);
   const user = useSelector((state) => state.user);
   const [time, setTime] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (user.lose || user.win) return;
-      setTime(time + 1);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [time, user.lose, user.win]);
 
   return (
     <Wrap>

@@ -21,7 +21,6 @@ const useJudge = () => {
   }, [dispatch, errors]);
 
   useEffect(() => {
-    console.log("checking win");
     if (checkWin(data.content, controls.trueLetters) === "win") {
       dispatch(setWin(true));
     }

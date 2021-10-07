@@ -30,3 +30,6 @@ export const UniqChar = styled.div`
 export const Duration = styled.div`
   ${item};
 `;
+export const GameScore = styled.div`
+  ${item};
+`;

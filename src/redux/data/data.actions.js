@@ -41,10 +41,7 @@ export const sendScoreData = (scoreData) => async (dispatch) => {
   }
 };
 
-export const getScores = () => async (dispatch) => {
-  try {
-    const respond = await api.getScores();
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+export const setTimeScore = (time) => ({
+  type: dataActionsTypes.SET_TIME,
+  payload: time,
+});
