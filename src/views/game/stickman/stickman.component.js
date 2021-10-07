@@ -8,6 +8,7 @@ import ArmRightImg from "../../../img/man/armRight.svg";
 import ArmLeftImg from "../../../img/man/armLeft.svg";
 import LegRightImg from "../../../img/man/legRight.svg";
 import LegLeftImg from "../../../img/man/legLeft.svg";
+import BubbleImg from "../../../img/bubble.svg";
 import {
   Weapon,
   Wrap,
@@ -18,6 +19,9 @@ import {
   ArmLeft,
   LegRight,
   LegLeft,
+  Message,
+  Bubble,
+  MessageText,
 } from "./stickman.styles";
 
 const Stickman = () => {
@@ -31,6 +35,12 @@ const Stickman = () => {
         {errors > 2 && <ArmRight src={ArmRightImg} />}
         {errors > 3 && <ArmLeft src={ArmLeftImg} />}
         {errors > 4 && <LegRight src={LegRightImg} />}
+        {errors > 4 && (
+          <Message>
+            <Bubble src={BubbleImg} />
+            <MessageText>help</MessageText>
+          </Message>
+        )}
         {errors > 5 && <LegLeft src={LegLeftImg} />}
       </HoldScene>
     </Wrap>

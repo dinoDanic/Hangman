@@ -52,3 +52,20 @@ export const LegLeft = styled.img`
   right: 0;
   width: 33px;
 `;
+export const Message = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -20px;
+  right: -70px;
+`;
+
+export const Bubble = styled.img`
+  position: absolute;
+  width: 100px;
+`;
+
+export const MessageText = styled.div`
+  margin-top: -5px;
+`;
