@@ -41,7 +41,7 @@ export const Content = styled(motion.div)`
   }
 `;
 export const Title = styled.div`
-  font-size: ${(props) => props.theme.spacing.font.lg};
+  font-size: ${(props) => props.theme.size.font.lg};
 `;
 
 export const Message = styled.div``;

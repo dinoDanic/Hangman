@@ -47,7 +47,7 @@ const PopUp = ({ children, title, message, setIsGameWin, setTime }) => {
             {message && <Message>{message}</Message>}
             {children}
             <Button onClick={handleNewGame}>New Game</Button>
-            <Button onClick={handleBackToMenu}>Beck to menu</Button>
+            <Button onClick={handleBackToMenu}>Back to menu</Button>
             <Button onClick={handleScoreBoard}>Score Board</Button>
           </Content>
         </Container>,

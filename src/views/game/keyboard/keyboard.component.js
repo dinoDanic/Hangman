@@ -33,7 +33,6 @@ const Keyboard = () => {
         if (!controls.trueLetters.includes(letter)) {
           dispatch(addTrueLetter(letter));
         } else {
-          console.log("same letter");
           dispatch(setErrorMessage("Same letter"));
         }
       } else {
@@ -41,7 +40,7 @@ const Keyboard = () => {
           dispatch(addFalseLetter(letter));
           dispatch(addError());
         } else {
-          console.log("no letter");
+          dispatch(setErrorMessage("Same letter"));
         }
       }
     }

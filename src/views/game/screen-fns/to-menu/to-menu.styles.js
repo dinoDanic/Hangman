@@ -5,6 +5,9 @@ export const Wrap = styled.div`
   position: absolute;
   bottom: 20px;
   left: 20px;
+  @media ${(props) => props.theme.size.screen.sm} {
+    display: none;
+  }
 `;
 export const HomeArrow = styled.img`
   width: 100%;

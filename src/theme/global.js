@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
       font-family: ${(props) => props.theme.fonts.primary}, cursive;
   }
   body {
-      font-size: ${(props) => props.theme.spacing.font.md}
+      font-size: ${(props) => props.theme.size.font.md}
   }
   .sentance {
     .word {

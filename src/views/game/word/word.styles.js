@@ -19,7 +19,7 @@ export const Sentance = styled.div`
     content: ".";
     justify-content: flex-end;
     align-items: flex-end;
-    font-size: ${(props) => props.theme.spacing.font.lg};
+    font-size: ${(props) => props.theme.size.font.lg};
     margin-bottom: 16px;
   }
   &:last-child {

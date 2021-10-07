@@ -20,7 +20,7 @@ const variants = {
 export const KeyboardKey = styled.div`
   ${({ variant }) => variant && variants[variant]}
   margin: 5px;
-  font-size: ${(props) => props.theme.spacing.font.lg};
+  font-size: ${(props) => props.theme.size.font.lg};
   text-transform: capitalize;
   cursor: pointer;
   &:hover {

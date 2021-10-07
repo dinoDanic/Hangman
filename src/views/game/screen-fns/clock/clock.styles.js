@@ -24,7 +24,7 @@ export const Img = styled.img`
 
 export const Time = styled.div`
   position: absolute;
-  font-size: ${(props) => props.theme.spacing.font.xl};
+  font-size: ${(props) => props.theme.size.font.xl};
   color: ${(props) => props.theme.colors.ui.success};
   top: 63px;
 `;
@@ -32,5 +32,5 @@ export const Time = styled.div`
 export const Text = styled.div`
   position: absolute;
   margin-top: 45px;
-  font-size: ${(props) => props.theme.spacing.font.md};
+  font-size: ${(props) => props.theme.size.font.md};
 `;

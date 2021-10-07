@@ -13,7 +13,7 @@ import Loading from "../../theme/ui-components/loading/loading.component";
 import Winner from "./winner/winner.component";
 import ScreenFns from "./screen-fns/screen-fns.component";
 
-import useJudge from "./judge/judge.hook";
+import { useJudge } from "../../hooks";
 
 const Game = () => {
   useJudge();

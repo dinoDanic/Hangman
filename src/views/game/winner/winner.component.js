@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setErrorMessage } from "../../../redux/controls/controls.actions";
 
 import { sendScoreData } from "../../../redux/data/data.actions";
 import { loadAnimation } from "../../../theme/animations";
@@ -41,11 +42,12 @@ const Winner = ({ setIsGameWin, setTime, time }) => {
           setSendSuccess(true);
           setDataSent(true);
         } else {
-          console.log("error with sending data");
+          dispatch(setErrorMessage("Problem with sending data"));
         }
       }, 1000);
     };
     sendData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [winnerData]);
 
   return (

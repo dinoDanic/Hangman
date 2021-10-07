@@ -11,7 +11,7 @@ export const Wrap = styled.div`
   &:hover {
     &:after {
       content: "Restart";
-      font-size: ${(props) => props.theme.spacing.font.md};
+      font-size: ${(props) => props.theme.size.font.md};
       text-transform: uppercase;
       color: ${(props) => props.theme.colors.primary};
       bottom: -36px;

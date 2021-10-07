@@ -14,9 +14,8 @@ const ErrorPopup = () => {
     const timer = setTimeout(() => {
       dispatch(setErrorMessage(null));
     }, 3000);
-
     return () => clearTimeout(timer);
-  }, [errorMessage]);
+  }, [dispatch, errorMessage]);
   return (
     <>
       {ReactDOM.createPortal(
@@ -30,7 +29,7 @@ const ErrorPopup = () => {
                 exit="exit"
               >
                 <RedLayer />
-                <Title>ERR!</Title>
+                <Title>GRR!</Title>
                 <Message>{errorMessage}</Message>
               </Info>
             )}

@@ -21,12 +21,12 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.div`
-  font-size: ${(props) => props.theme.spacing.font.xl};
+  font-size: ${(props) => props.theme.size.font.xl};
   margin-bottom: 30px;
 `;
 
 export const Message = styled.div`
-  font-size: ${(props) => props.theme.spacing.font.md};
+  font-size: ${(props) => props.theme.size.font.md};
   transform: rotate(-5deg);
   position: absolute;
   text-transform: uppercase;

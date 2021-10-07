@@ -17,7 +17,7 @@ const variants = {
 export const TheLetter = styled.div`
   ${({ variant, theme }) => variant && variants[variant](theme)};
   border-bottom: 3px solid ${(props) => props.theme.colors.ui.primary};
-  font-size: ${(props) => props.theme.spacing.font.lg};
+  font-size: ${(props) => props.theme.size.font.lg};
   align-items: center;
   justify-content: center;
   margin: 0 2px;

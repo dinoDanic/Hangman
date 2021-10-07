@@ -7,7 +7,7 @@ export const Wrap = styled.div`
 `;
 export const Title = styled.div`
   text-align: center;
-  font-size: ${(props) => props.theme.spacing.font.lg};
+  font-size: ${(props) => props.theme.size.font.lg};
 `;
 
 export const Table = styled.div`

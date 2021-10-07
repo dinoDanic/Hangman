@@ -9,7 +9,6 @@ const Letter = ({ letter, ...otherProps }) => {
   useEffect(() => {
     if (letter === " ") {
       setVariant("space");
-      console.log("im space", letter);
     }
     let check = checkSpecial(letter);
     if (check) {

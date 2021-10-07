@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRendomQuote } from "../../../redux/data/data.actions";
-import { setLose, setWin } from "../../../redux/user/user.actions";
-import { checkWin } from "../utils";
 
-const useJudge = () => {
+import { getRendomQuote } from "../redux/data/data.actions";
+import { setLose, setWin } from "../redux/user/user.actions";
+import { checkWin } from "../views/game/utils";
+
+export const useJudge = () => {
   const dispatch = useDispatch();
   const errors = useSelector((state) => state.controls.errors);
   const data = useSelector((state) => state.data);
@@ -26,5 +27,3 @@ const useJudge = () => {
     }
   }, [controls, data.content, dispatch]);
 };
-
-export default useJudge;

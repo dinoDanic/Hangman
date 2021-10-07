@@ -30,7 +30,7 @@ export const HoldInfo = styled.div`
 `;
 export const Title = styled.div``;
 export const ErrorsLeft = styled.div`
-  font-size: ${(props) => props.theme.spacing.font.xl};
+  font-size: ${(props) => props.theme.size.font.xl};
   color: ${(props) => props.theme.colors.ui.danger};
   display: flex;
   margin-top: -10px;

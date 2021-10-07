@@ -17,7 +17,7 @@ const isValid = (theme) => `
 `;
 
 const defaultStyle = (theme) => `
-font-size: ${theme.spacing.font.lg};
+font-size: ${theme.size.font.lg};
 border: none;
 background-color: transparent;
 cursor: pointer;

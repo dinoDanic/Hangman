@@ -23,7 +23,6 @@ const ScoreBoard = () => {
         if (data) setState(data);
         else return;
       } catch (error) {
-        console.log(error.message);
         dispatch(
           setErrorMessage(
             `Something went wrong with fetching loading scores. Message: ${error.message}`

@@ -45,7 +45,7 @@ const Welcome = () => {
 
   return (
     <Wrap variants={welcomeAni} animate="animate" initial="initial" exit="exit">
-      <Title>Hang Man</Title>
+      <Title>Hangman</Title>
       <Form onSubmit={handlePlay}>
         <Img src={noteImg} />
         <Message>Name</Message>

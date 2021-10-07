@@ -12,6 +12,10 @@ export const Wrap = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 100;
+  @media ${(props) => props.theme.size.screen.sm} {
+    max-width: 0px;
+    min-width: 100%;
+  }
 `;
 
 export const Img = styled.img`
@@ -29,11 +33,18 @@ export const Paper = styled.div`
   padding: ${(props) => props.theme.spacing.padding.lg};
   display: flex;
   flex-direction: column;
+  @media ${(props) => props.theme.size.screen.sm} {
+    width: 80%;
+    transform: rotate(3deg);
+    top: 0;
+    left: 10%;
+    height: auto;
+  }
 `;
 
 export const Title = styled.div`
   text-align: center;
-  font-size: ${(props) => props.theme.spacing.font.lg};
+  font-size: ${(props) => props.theme.size.font.lg};
 `;
 
 export const Loading = styled.div``;
@@ -49,7 +60,7 @@ export const CloseBoard = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: ${(props) => props.theme.spacing.font.md};
+  font-size: ${(props) => props.theme.size.font.md};
   cursor: pointer;
   &:hover {
     transform: scale(1.3) rotate(10deg);
