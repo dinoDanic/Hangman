@@ -22,6 +22,6 @@ export const Load = styled(motion.div)`
 `;
 
 export const LoadImg = styled.img`
-  width: 50px;
+  width: 80px;
   margin-bottom: 20px;
 `;
