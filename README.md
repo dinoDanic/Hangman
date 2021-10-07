@@ -6,7 +6,8 @@ live: https://admiring-almeida-eefb3c.netlify.app
 
 ### Install
 
-    - Clone this porjec
+    - clone this project
+    - cd into the project
     - npm install
     - npm start
 
