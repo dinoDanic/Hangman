@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
+  @media ${(props) => props.theme.size.screen.sm} {
+    flex: 0.7;
+    overflow-y: scroll;
+  }
 `;
 export const Words = styled.div`
   display: flex;

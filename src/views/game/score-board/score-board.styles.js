@@ -15,6 +15,8 @@ export const Wrap = styled(motion.div)`
   @media ${(props) => props.theme.size.screen.sm} {
     max-width: 0px;
     min-width: 100%;
+    left: 0;
+    top: 0;
   }
 `;
 
@@ -25,7 +27,7 @@ export const Img = styled.img`
 
 export const Paper = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 90%;
   position: absolute;
   background-image: url(${bgImg});
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px;
@@ -35,11 +37,7 @@ export const Paper = styled.div`
   flex-direction: column;
   overflow-x: auto;
   @media ${(props) => props.theme.size.screen.sm} {
-    width: 80%;
-    transform: rotate(3deg);
-    top: 0;
-    left: 10%;
-    height: auto;
+    height: 100%;
   }
 `;
 

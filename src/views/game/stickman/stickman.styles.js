@@ -3,6 +3,9 @@ import styled, { css } from "styled-components";
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
+  @media ${(props) => props.theme.size.screen.sm} {
+    flex: 0.1;
+  }
 `;
 
 export const HoldScene = styled.div`

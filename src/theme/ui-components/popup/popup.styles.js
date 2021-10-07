@@ -12,6 +12,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   overflow: auto;
+  z-index: 100;
 `;
 
 export const Layer = styled.div`

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getScores } from "../../../api";
+import useWindowDimensions from "../../../hooks";
 import {
   setErrorMessage,
   setScoreBoard,
@@ -11,6 +12,7 @@ import ScoreBoardData from "./score-board-data/score-board-data.component";
 import { Wrap, Rules, Paper, Loading, CloseBoard } from "./score-board.styles";
 
 const ScoreBoard = () => {
+  const { height, width } = useWindowDimensions();
   const dispatch = useDispatch();
   const [state, setState] = useState([]);
   const scoreBoard = useSelector((state) => state.controls.scoreBoard);
@@ -39,17 +41,25 @@ const ScoreBoard = () => {
   };
 
   const boardAnimation = {
-    initial: { x: "-150%", rotate: -50 },
+    initial: { x: "-150%", rotate: -50, opacity: 0 },
     animate: {
       x: scoreBoard ? "-2%" : "-150%",
       rotate: scoreBoard ? -3 : -50,
+      opacity: scoreBoard ? 1 : 0,
+    },
+    exit: { opacity: 0 },
+  };
+  const boardAnimationMobile = {
+    initial: { x: "-102%" },
+    animate: {
+      x: scoreBoard ? 0 : "-102%",
     },
     exit: { opacity: 0 },
   };
 
   return (
     <Wrap
-      variants={boardAnimation}
+      variants={width > 700 ? boardAnimation : boardAnimationMobile}
       animate="animate"
       initial="initial"
       transition={{ type: "spring", stiffness: "50" }}
