@@ -9,3 +9,7 @@ live: https://admiring-almeida-eefb3c.netlify.app
     - Clone this porjec
     - npm install
     - npm start
+
+### Screen
+
+![screen1](https://raw.githubusercontent.com/dinoDanic/Hangman/main/src/img/screen1.png)
