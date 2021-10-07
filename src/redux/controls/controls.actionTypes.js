@@ -11,6 +11,7 @@ const controlsActionType = {
   SET_BOARD: "SET_BOARD",
   SET_WINNER: "SET_WINNER",
   SET_LOOSER: "SET_LOOSER",
+  SET_ERROR_MESSAGE: "SET_ERROR_MESSAGE",
 };
 
 export default controlsActionType;

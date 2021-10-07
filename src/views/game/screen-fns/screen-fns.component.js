@@ -4,6 +4,7 @@ import { Wrap } from "./screen-fns.styles";
 import Clock from "./clock/clock.component";
 import CountErrors from "./count-errros/count-errors.component";
 import Restart from "./restart/restart.component";
+import ToMenu from "./to-menu/to-menu.component";
 
 const ScreenFns = ({ time, setTime }) => {
   return (
@@ -11,6 +12,7 @@ const ScreenFns = ({ time, setTime }) => {
       <Clock time={time} />
       <CountErrors />
       <Restart setTime={setTime} />
+      <ToMenu />
     </Wrap>
   );
 };

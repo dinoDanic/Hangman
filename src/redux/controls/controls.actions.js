@@ -55,3 +55,8 @@ export const newGame = () => async (dispatch) => {
     payload: false,
   });
 };
+
+export const setErrorMessage = (message) => ({
+  type: controlsActionType.SET_ERROR_MESSAGE,
+  payload: message,
+});

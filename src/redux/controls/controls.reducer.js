@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   errors: -20,
   trueLetters: [],
   falseLetters: [],
+  errorMessage: "some message",
 };
 
 const controlsReducer = (state = INITIAL_STATE, action) => {
@@ -78,7 +79,11 @@ const controlsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         winner: action.payload,
       };
-
+    case controlsActionType.SET_ERROR_MESSAGE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+      };
     default:
       return state;
   }
