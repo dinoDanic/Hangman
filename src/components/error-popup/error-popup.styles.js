@@ -5,13 +5,13 @@ import bgImg from "../../img/bg2.png";
 
 export const Wrap = styled(motion.div)`
   position: fixed;
-  top: 0px;
+  top: 20px;
   left: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100px;
+  z-index: 500;
 `;
 
 export const Info = styled(motion.div)`
@@ -25,6 +25,7 @@ export const Info = styled(motion.div)`
   align-items: center;
   background-image: url(${bgImg});
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px;
+  z-index: 50;
 `;
 
 export const Paper = styled.img`

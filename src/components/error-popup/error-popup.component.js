@@ -11,10 +11,12 @@ const ErrorPopup = () => {
   const dispatch = useDispatch();
   const errorMessage = useSelector((state) => state.controls.errorMessage);
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       dispatch(setErrorMessage(null));
     }, 3000);
-  }, []);
+
+    return () => clearTimeout(timer);
+  }, [errorMessage]);
   return (
     <>
       {ReactDOM.createPortal(

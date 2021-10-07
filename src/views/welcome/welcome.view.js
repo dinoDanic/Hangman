@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { setPlay, setScoreBoard } from "../../redux/controls/controls.actions";
+import {
+  setErrorMessage,
+  setPlay,
+  setScoreBoard,
+} from "../../redux/controls/controls.actions";
 import { setUser } from "../../redux/user/user.actions";
 
 import { Wrap, Title, Message, Img, Form, EnterName } from "./welcome.styles";
@@ -22,7 +26,10 @@ const Welcome = () => {
 
   const handlePlay = (e) => {
     e.preventDefault();
-    if (!playValid) return;
+    if (!playValid) {
+      dispatch(setErrorMessage("Write your name!"));
+      return;
+    }
     dispatch(setPlay(true));
     dispatch(setUser(name));
     dispatch(setScoreBoard(false));

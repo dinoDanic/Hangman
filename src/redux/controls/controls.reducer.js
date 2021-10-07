@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   errors: -20,
   trueLetters: [],
   falseLetters: [],
-  errorMessage: "some message",
+  errorMessage: null,
 };
 
 const controlsReducer = (state = INITIAL_STATE, action) => {

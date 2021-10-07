@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getScores } from "../../../api";
-import { setScoreBoard } from "../../../redux/controls/controls.actions";
+import {
+  setErrorMessage,
+  setScoreBoard,
+} from "../../../redux/controls/controls.actions";
 
 import ScoreBoardData from "./score-board-data/score-board-data.component";
 
@@ -21,6 +24,11 @@ const ScoreBoard = () => {
         else return;
       } catch (error) {
         console.log(error.message);
+        dispatch(
+          setErrorMessage(
+            `Something went wrong with fetching loading scores. Message: ${error.message}`
+          )
+        );
       }
     };
     loadScores();

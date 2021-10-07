@@ -10,7 +10,7 @@ export const Wrap = styled(motion.div)`
   align-items: center;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 200;
   background-image: url(${BgImg});
 `;
 

@@ -11,6 +11,8 @@ export const getRendomQuote = () => async (dispatch) => {
     try {
       const respond = await api.rendomQuote();
       const data = await respond.data;
+      console.log(respond);
+
       dispatch({
         type: dataActionsTypes.SET_DATA,
         payload: data,
@@ -21,6 +23,10 @@ export const getRendomQuote = () => async (dispatch) => {
       });
     } catch (error) {
       console.log(error.message);
+      dispatch({
+        type: controlsActionType.SET_ERROR_MESSAGE,
+        payload: `Something went wrong with fetching Api qoute. Message: ${error.message}`,
+      });
     }
   }, 500);
 };
@@ -37,7 +43,10 @@ export const sendScoreData = (scoreData) => async (dispatch) => {
     console.log(respond);
     return respond;
   } catch (error) {
-    console.log(error.message);
+    dispatch({
+      type: controlsActionType.SET_ERROR_MESSAGE,
+      payload: `Something went wrong with sending score data. Message: ${error.message}`,
+    });
   }
 };
 

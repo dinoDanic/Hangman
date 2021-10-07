@@ -8,6 +8,7 @@ import {
   addError,
   addFalseLetter,
   addTrueLetter,
+  setErrorMessage,
 } from "../../../redux/controls/controls.actions";
 
 const Keyboard = () => {
@@ -33,6 +34,7 @@ const Keyboard = () => {
           dispatch(addTrueLetter(letter));
         } else {
           console.log("same letter");
+          dispatch(setErrorMessage("Same letter"));
         }
       } else {
         if (!controls.falseLetters.includes(letter)) {
