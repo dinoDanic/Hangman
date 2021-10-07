@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { loadAnimation } from "../../animations";
+import LoadingImg from "../../../img/loading.gif";
 
-import { Wrap, Load } from "./loading.styles";
+import { Wrap, Load, LoadImg } from "./loading.styles";
 
 const Loading = () => {
   return (
@@ -14,6 +15,7 @@ const Loading = () => {
           initial={{ opacity: 0 }}
         >
           <Load variants={loadAnimation} animate="animate" initial="initial">
+            <LoadImg src={LoadingImg} />
             Loading...
           </Load>
         </Wrap>,

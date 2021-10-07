@@ -25,7 +25,7 @@ export const getRendomQuote = () => async (dispatch) => {
         payload: `Something went wrong with fetching Api qoute. Message: ${error.message}`,
       });
     }
-  }, 500);
+  }, 2000);
 };
 
 export const restartGame = () => async (dispatch) => {

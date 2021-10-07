@@ -14,4 +14,14 @@ export const Wrap = styled(motion.div)`
   background-image: url(${BgImg});
 `;
 
-export const Load = styled(motion.div)``;
+export const Load = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LoadImg = styled.img`
+  width: 50px;
+  margin-bottom: 20px;
+`;
