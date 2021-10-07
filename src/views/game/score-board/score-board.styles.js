@@ -12,6 +12,7 @@ export const Wrap = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 100;
+  z-index: 200;
   @media ${(props) => props.theme.size.screen.sm} {
     max-width: 0px;
     min-width: 100%;
