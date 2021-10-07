@@ -11,11 +11,12 @@ import { Sending, Wrap, Load } from "./winner.styles";
 const Winner = ({ setIsGameWin, setTime, time }) => {
   const data = useSelector((state) => state.data);
   const user = useSelector((state) => state.user);
-  const [dataSent, setDataSent] = useState(false);
   const controls = useSelector((state) => state.controls);
+  const [dataSent, setDataSent] = useState(false);
   const [isSending, setIsSending] = useState(true);
   const [sendSuccess, setSendSuccess] = useState(false);
   const [winnerData, setWinnerData] = useState({});
+  const [endMessage, setEndMessage] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,18 +36,29 @@ const Winner = ({ setIsGameWin, setTime, time }) => {
     if (dataSent) return;
     const sendData = async () => {
       setIsSending(true);
-      const respond = await dispatch(sendScoreData(winnerData));
-      setTimeout(() => {
-        if (respond.status === 201) {
-          setIsSending(false);
-          setSendSuccess(true);
-          setDataSent(true);
-        } else {
-          dispatch(setErrorMessage("Problem with sending data"));
-        }
-      }, 1000);
+      try {
+        const respond = await dispatch(sendScoreData(winnerData));
+        if (!respond) return;
+        setTimeout(() => {
+          if (respond.status === 201) {
+            setIsSending(false);
+            setSendSuccess(true);
+            setEndMessage("Score data sent");
+          }
+        }, 1000);
+      } catch (error) {
+        dispatch(
+          setErrorMessage(
+            `Problem with sending data. Message: ${error.message} `
+          )
+        );
+        setIsSending(false);
+        setSendSuccess(true);
+        setEndMessage("Sending Failed..");
+      }
     };
     sendData();
+    setDataSent(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [winnerData]);
 
@@ -58,7 +70,7 @@ const Winner = ({ setIsGameWin, setTime, time }) => {
             Sending score data
           </Load>
         )}
-        {sendSuccess && !isSending && <div>Score Data Sent!</div>}
+        {sendSuccess && !isSending && <div>{endMessage}</div>}
       </Sending>
     </Wrap>
   );

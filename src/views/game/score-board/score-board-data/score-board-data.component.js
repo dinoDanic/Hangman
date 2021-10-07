@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import UserScore from "./user-score/user-score.component";
 
-import { Wrap, Title, Table, Rules } from "./score-board-data.styles";
+import { Wrap, Title, Table } from "./score-board-data.styles";
 import {
   Duration,
   Errors,

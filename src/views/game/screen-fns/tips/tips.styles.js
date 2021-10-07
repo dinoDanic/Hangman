@@ -12,7 +12,7 @@ export const Wrap = styled.div`
 export const Computer = styled.img`
   position: absolute;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.3;
   transform: rotate(-20deg);
   top: 20px;
   width: 100px;
@@ -24,15 +24,16 @@ export const Text = styled.div`
   position: absolute;
   opacity: 0.2;
   width: 200px;
-  top: 95px;
-  left: 40px;
+  top: 0px;
+  left: 120px;
   transform: rotate(-20deg);
 `;
 
 export const Arrow = styled.img`
   width: 30px;
-  opacity: 0.5;
+  opacity: 0.3;
   position: absolute;
   top: 70px;
   left: 60px;
+  transform: rotate(-20deg);
 `;

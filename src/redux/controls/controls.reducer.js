@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   scoreBoard: false,
   winner: false,
   loser: false,
-  errors: 0,
+  errors: -40,
   trueLetters: [],
   falseLetters: [],
   errorMessage: null,

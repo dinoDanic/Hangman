@@ -1,5 +1,5 @@
 export const checkSpecial = (data) => {
-  let spChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+  let spChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
   if (spChars.test(data)) {
     return true;
   } else {

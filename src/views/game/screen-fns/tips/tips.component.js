@@ -2,7 +2,7 @@ import React from "react";
 import { Wrap, Computer, Arrow, Text } from "./tips.styles";
 
 import ComputerImg from "../../../../img/keyboard.svg";
-import ArrowImg from "../../../../img/arrow2.svg";
+import ArrowImg from "../../../../img/arrow1.svg";
 
 const Tips = () => {
   return (

@@ -15,9 +15,9 @@ function App() {
     <Wrap>
       <AnimatePresence exitBeforeEnter>
         {controls.play ? <Game key="game" /> : <Welcome key="wel" />}
-        <ScoreBoard />
-        <ErrorPopup key="error" />
       </AnimatePresence>
+      <ScoreBoard />
+      <ErrorPopup key="error" />
     </Wrap>
   );
 }
