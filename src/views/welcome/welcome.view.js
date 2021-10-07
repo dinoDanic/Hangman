@@ -46,7 +46,7 @@ const Welcome = () => {
           <Input placeholder="enter name" onChange={handleChange} />
         </EnterName>
       </Form>
-      <Button valid={playValid} type="submit">
+      <Button valid={playValid} type="submit" onClick={handlePlay}>
         Play
       </Button>
       <Button onClick={handleBoard}>Score Board</Button>

@@ -28,17 +28,18 @@ export const Img = styled(motion.img)`
 
 export const Text = styled.div`
   font-family: ${(props) => props.theme.fonts.secondary};
+  font-size: 1.2rem;
   position: absolute;
-  top: -150px;
-  left: -100px;
+  top: -120px;
+  left: -90px;
   transform: rotate(-20deg);
   opacity: 0.2;
 `;
 
 export const Arrow = styled.img`
   position: absolute;
-  top: -100px;
-  left: -40px;
-  width: 50px;
+  top: -70px;
+  left: -23px;
+  width: 30px;
   opacity: 0.5;
 `;

@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import {
-  restartControls,
-  setScoreBoard,
-} from "../../../redux/controls/controls.actions";
-import {
-  getRendomQuote,
-  sendScoreData,
-} from "../../../redux/data/data.actions";
-
-import Button from "../../../theme/ui-components/button/button.component";
+import { useDispatch, useSelector } from "react-redux";
+import { sendScoreData } from "../../../redux/data/data.actions";
+import { getUniqueChars } from "../utils";
 
 import { Sending, Wrap } from "./winner.styles";
 
-const Winner = ({ setIsGameWin, setTime, winnerData }) => {
+const Winner = ({ setIsGameWin, setTime, time }) => {
+  const data = useSelector((state) => state.data);
+  const user = useSelector((state) => state.user);
+  const controls = useSelector((state) => state.controls);
   const [isSending, setIsSending] = useState(false);
   const [sendSuccess, setSendSuccess] = useState(false);
+  const [winnerData, setWinnerData] = useState({});
   const dispatch = useDispatch();
-  const handleNewGame = () => {
-    dispatch(restartControls());
-    dispatch(getRendomQuote());
-    setIsGameWin(false);
-    dispatch(setScoreBoard(false));
-    setTime(0);
-  };
-  const handleBoard = () => {
-    dispatch(setScoreBoard());
-    setTime(0);
-  };
+
   useEffect(() => {
+    setWinnerData({
+      quoteId: data._id,
+      length: data.length,
+      uniqueCharacters: getUniqueChars(data.content),
+      userName: user.userName,
+      errors: controls.errors,
+      duration: time * 1000,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!winnerData.userName) return;
     const sendData = async () => {
       setIsSending(true);
       const respond = await dispatch(sendScoreData(winnerData));
@@ -42,7 +41,8 @@ const Winner = ({ setIsGameWin, setTime, winnerData }) => {
       }, 1000);
     };
     sendData();
-  }, []);
+  }, [dispatch, winnerData]);
+
   return (
     <Wrap>
       <Sending>

@@ -6,32 +6,23 @@ const Word = ({ word, trueLetters }) => {
   word.toLowerCase();
   return (
     <Wrap className="wordWrap">
-      <Words>
+      <Words className="complete">
         {word?.split(".").map((sentance, i) => {
           return (
             <Sentance className="sentance" key={i}>
-              {sentance.split(" ").map((oneWord, i) => (
-                <OneWord className="word" key={i}>
-                  {oneWord.split("").map((letter, i) => (
-                    <Letter className="letter" key={i} letter={letter} />
-                  ))}
-                </OneWord>
-              ))}
+              {sentance.split(" ").map((oneWord, i) => {
+                return (
+                  <OneWord className="word" key={i}>
+                    {oneWord.split("").map((letter, i) => (
+                      <Letter className="letter" key={i} letter={letter} />
+                    ))}
+                  </OneWord>
+                );
+              })}
             </Sentance>
           );
         })}
       </Words>
-      {/* <Words>
-        {word?.split(" ").map((oneWord, i) => {
-          return (
-            <OneWord key={i}>
-              {oneWord.split("").map((letter, i) => (
-                <Letter key={i} letter={letter} />
-              ))}
-            </OneWord>
-          );
-        })}
-      </Words> */}
     </Wrap>
   );
 };

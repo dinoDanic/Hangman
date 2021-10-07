@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { KeyboardKey, Underline, Wrap } from "./key.styles";
-
-import UnderlineImg from "../../../../img/x.svg";
+import { KeyboardKey, Wrap } from "./key.styles";
 
 const Key = ({ keyCode, handleKey }) => {
-  // const trueLetters = useSelector((state) => state.controls.trueLetters);
-  // const falseLetters = useSelector((state) => state.controls.falseLetters);
   const controls = useSelector((state) => state.controls);
   const [state, setState] = useState("");
 
@@ -21,7 +17,6 @@ const Key = ({ keyCode, handleKey }) => {
       <KeyboardKey variant={state} onClick={() => handleKey(null, keyCode)}>
         {keyCode}
       </KeyboardKey>
-      {/* <Underline variant={state} src={UnderlineImg} /> */}
     </Wrap>
   );
 };

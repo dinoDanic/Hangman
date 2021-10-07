@@ -13,7 +13,7 @@ export const Words = styled.div`
 export const Sentance = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justifycontent: "center";
+  justify-content: center;
   &:after {
     display: flex;
     content: ".";
