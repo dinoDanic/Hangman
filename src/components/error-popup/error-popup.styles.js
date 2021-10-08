@@ -6,9 +6,8 @@ import bgImg from "../../img/bg2.png";
 export const Wrap = styled(motion.div)`
   position: fixed;
   top: 20px;
-  left: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   z-index: 500;

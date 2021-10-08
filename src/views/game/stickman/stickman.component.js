@@ -36,7 +36,10 @@ const Stickman = () => {
         {errors > 3 && <ArmLeft src={ArmLeftImg} />}
         {errors > 4 && <LegRight src={LegRightImg} />}
         {errors > 4 && (
-          <Message>
+          <Message
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, transition: { delay: 2 } }}
+          >
             <Bubble src={BubbleImg} />
             <MessageText>help</MessageText>
           </Message>

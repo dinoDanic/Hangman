@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getScores } from "../../../api";
-import useWindowDimensions from "../../../hooks";
+import { useWindowDimensions } from "../../../hooks";
 import {
   setErrorMessage,
   setScoreBoard,
@@ -12,7 +12,7 @@ import ScoreBoardData from "./score-board-data/score-board-data.component";
 import { Wrap, Rules, Paper, Loading, CloseBoard } from "./score-board.styles";
 
 const ScoreBoard = () => {
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const dispatch = useDispatch();
   const [state, setState] = useState([]);
   const scoreBoard = useSelector((state) => state.controls.scoreBoard);

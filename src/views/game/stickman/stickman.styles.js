@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
@@ -55,7 +56,7 @@ export const LegLeft = styled.img`
   right: 0;
   width: 33px;
 `;
-export const Message = styled.div`
+export const Message = styled(motion.div)`
   position: absolute;
   display: flex;
   justify-content: center;
