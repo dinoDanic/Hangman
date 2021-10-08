@@ -53,6 +53,8 @@ const ScoreBoard = () => {
     initial: { x: "-102%" },
     animate: {
       x: scoreBoard ? 0 : "-102%",
+      rotate: ScoreBoard && 0,
+      opacity: scoreBoard && 1,
     },
     exit: { opacity: 0 },
   };
